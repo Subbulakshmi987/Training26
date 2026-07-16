@@ -1,4 +1,4 @@
-﻿namespace Training_26 {
+﻿namespace Training_26 { 
    class Program {
       static void Main (string[] args) {
          string s = "([Metamation])";
