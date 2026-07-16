@@ -1,4 +1,4 @@
-﻿namespace Training_26 {
+﻿namespace Training_26 { 
    class Program2 {
       static void Main () {
          int[,] matrix =
