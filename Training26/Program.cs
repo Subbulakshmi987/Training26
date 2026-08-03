@@ -9,6 +9,8 @@ namespace Training26;
 
 class Program {
    static void Main (string[] args) {
+      CoolerDay ();}
+   static void CoolerDay () {
       int[] arr = { 30, 31, 29, 32, 28, 27, 30, 25 };
       for (int i = 0; i < arr.Length; i++) {
          for (int j = i + 1; j < arr.Length; j++) {
