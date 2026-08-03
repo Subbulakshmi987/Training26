@@ -9,8 +9,12 @@ namespace Training26;
 
 class Program {
    static void Main (string[] args) {
+      MagicSquare ();
+
+   }
+   static void MagicSquare () {
       int[,] matrix =
-         {
+      {
                  {2, 7, 6},
                  {9, 5, 1},
                  {4, 3, 8}
