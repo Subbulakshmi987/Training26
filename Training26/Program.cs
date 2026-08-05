@@ -1,47 +1,41 @@
-﻿// ------------------------------------------------------------------------------------------------
-// Training ~ A training program for new joinees at Metamation, Batch- July 2025.
+﻿/// ------------------------------------------------------------------------------------------------
+// Training ~ A training program for new joinees at Metamation, Batch- July 2026.
 // Copyright (c) Metamation India.
-// ------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Program.cs
-// Program on branch T2-Magic Square.
+// Program to check whether a given matrix is a magic square.
 // ------------------------------------------------------------------------------------------------
 namespace Training26;
-
 class Program {
-   static void Main (string[] args) {
-      MagicSquare ();
-
+   static void Main () {
+      int[,] matrix = {
+         {2,7,6 },
+         {9,5,1 },
+         {4,3,8 }
+      };
+      Console.WriteLine (IsMagicSquare (matrix));
    }
-   static void MagicSquare () {
-      int[,] matrix =
-      {
-                 {2, 7, 6},
-                 {9, 5, 1},
-                 {4, 3, 8}
-         };
-      int magicSum = 0;
+   static bool IsMagicSquare (int[,] matrix) {
+      int diagonal1 = 0, magicSum = 0, diagonal2 = 0;
+      //bool isMagic = true;
       for (int j = 0; j < 3; j++) magicSum += matrix[0, j];
-      bool Ismagic = false;
-      for (int i = 0; i < matrix.GetLength (0); i++) {
-         int sum = 0;
-         for (int j = 0; j < matrix.GetLength (1); j++) {
-            sum += matrix[i, j];
-            if (magicSum == sum) Ismagic = true;
-         }
+      for (int i = 0; i < 3; i++) {
+         int rowSum = 0;
+         for (int j = 0; j < 3; j++) 
+            rowSum += matrix[i, j];
+         if(magicSum != rowSum) return false;
       }
-      for (int j = 0; j < matrix.GetLength (1); j++) {
-         int columnsum = 0;
-         for (int i = 0; i < matrix.GetLength (1); i++)
-            columnsum += matrix[j, i];
-         if (magicSum == columnsum) Ismagic = true;
+      for (int j = 0; j < 3; j++) {
+         int columnSum = 0;
+         for (int i = 0; i < 3; i++)
+            columnSum += matrix[i, j];
+         if(magicSum != columnSum) return false;
       }
-      int diagonal1 = 0;
       for (int i = 0; i < 3; i++) diagonal1 += matrix[i, i];
-      if (magicSum == diagonal1) Ismagic = true;
-      int diagonal2 = 0;
-      for (int i = 0; i < 3; i++) diagonal2 += matrix[i, 2 - i];
-      if (magicSum == diagonal1) Ismagic = true;
-      if (Ismagic) Console.WriteLine ("True");
-      else Console.WriteLine ("False");
+      if(magicSum != diagonal1) return false;
+      for (int i = 0; i < 3; i++)
+         diagonal2 += matrix[i, 3- 1 - i];
+      if(magicSum != diagonal2) return false;
+      return true;
    }
 }
