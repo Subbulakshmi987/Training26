@@ -16,17 +16,14 @@ class Program {
       Console.WriteLine (IsMagicSquare (matrix));
    }
    static bool IsMagicSquare (int[,] matrix) {
-      int diagonal1 = 0, magicSum = 0, diagonal2 = 0;
-      //bool isMagic = true;
+      int diagonal1 = 0, magicSum = 0,rowSum=0,columnSum=0, diagonal2 = 0;
       for (int j = 0; j < 3; j++) magicSum += matrix[0, j];
       for (int i = 0; i < 3; i++) {
-         int rowSum = 0;
          for (int j = 0; j < 3; j++) 
             rowSum += matrix[i, j];
          if(magicSum != rowSum) return false;
       }
       for (int j = 0; j < 3; j++) {
-         int columnSum = 0;
          for (int i = 0; i < 3; i++)
             columnSum += matrix[i, j];
          if(magicSum != columnSum) return false;
