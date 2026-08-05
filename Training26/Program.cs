@@ -10,20 +10,19 @@ namespace Training26;
 class Program {
    static void Main () {
       int[,] matrix = {
-         {2, 7, 6 },
-         {9, 5, 1 },
-         {4, 3, 8 }
+         { 2, 7, 6 },
+         { 9, 5, 1 },
+         { 4, 3, 8 }
       };
       Console.WriteLine (IsMagicSquare (matrix));
    }
    static bool IsMagicSquare (int[,] matrix) {
-      int magicSum = 0, diagonal1 = 0, diagonal2 = 0, rowSum, columnSum;
+      int magicSum = 0, diagonal1 = 0, diagonal2 = 0;
       for (int j = 0; j < 3; j++) magicSum += matrix[0, j];
       for (int i = 0; i < 3; i++) {
-         rowSum = 0;
-         columnSum = 0;
+         int rowSum = 0, columnSum = 0;
          for (int j = 0; j < 3; j++) {
-            rowSum += matrix[i, j];
+            rowSum += matrix[i, j]; 
             columnSum += matrix[j, i];
          }
          if (magicSum != rowSum || magicSum != columnSum) return false;
