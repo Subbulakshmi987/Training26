@@ -6,7 +6,6 @@
 // Program to check whether a given matrix is a magic square.
 // ------------------------------------------------------------------------------------------------
 namespace Training26;
-
 class Program {
    static void Main () {
       int[,] matrix = {
