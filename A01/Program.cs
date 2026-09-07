@@ -13,7 +13,7 @@ namespace Practice_for_Academy_23 {
          int maxTries = 7;
          for (int tries = 1; tries <= maxTries; tries++) {
             Console.Write ("Enter your guess between 1 and 100: ");
-            string input = Console.ReadLine ();
+            string? input = Console.ReadLine ();
             if (!int.TryParse (input, out int guess) || guess < 1 || guess > 100) {
                Console.WriteLine ("Please enter a valid number between 1 and 100.");
                tries--;
@@ -31,4 +31,3 @@ namespace Practice_for_Academy_23 {
       }
    }
 }
-
